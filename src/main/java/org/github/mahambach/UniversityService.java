@@ -24,8 +24,7 @@ public class UniversityService {
 
     public static BigDecimal calculateAverageGradeOfUniversity(University university) {
         return university.getCourses().stream()
-                .map(UniversityService::calculateAverageGradeOfCourse)
-                .peek(System.out::println)
+                .map(course ->calculateAverageGradeOfCourse(course).multiply(new BigDecimal(course.getStudents().size())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                 .divide(BigDecimal.valueOf(
                         university

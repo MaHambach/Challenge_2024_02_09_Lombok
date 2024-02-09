@@ -11,15 +11,16 @@ class UniversityServiceTest {
 
     @Test
     void testCalculateAverageGradeOfCourse() {
-        Course course = new Course(1, "Math",
-                new Teacher(1, "Jane Doe", "Math"),
+        Course course = new Course(2, "Physics",
+                new Teacher(2, "John Doe", "Physics"),
                 List.of(
-                        new Student(1, "John Doe", "123 Main St", new BigDecimal("2.0")),
-                        new Student(2, "Jane Doe", "123 Main St", new BigDecimal("3.0")),
-                        new Student(3, "Jack Doe", "123 Main St", new BigDecimal("4.0"))
+                        new Student(4, "John Doe", "123 Main St", new BigDecimal("1.0")),
+                        new Student(5, "Jane Doe", "123 Main St", new BigDecimal("3.0")),
+                        new Student(6, "Jack Doe", "123 Main St", new BigDecimal("5.0")),
+                        new Student(8, "John Doe", "123 Main St", new BigDecimal("2.0"))
                 )
         );
-        BigDecimal expected = new BigDecimal("3.00");
+        BigDecimal expected = new BigDecimal("2.75");
 
         BigDecimal actual = UniversityService.calculateAverageGradeOfCourse(course);
 
@@ -48,7 +49,7 @@ class UniversityServiceTest {
                         )
                 )
         ));
-        BigDecimal expected = new BigDecimal("3.00");
+        BigDecimal expected = new BigDecimal("2.80");
 
         BigDecimal actual = UniversityService.calculateAverageGradeOfUniversity(university);
 
